@@ -1,17 +1,17 @@
 # config
 my configs on parrotos
 
-###related apps:
+### related apps:
 - bat
 - exa
 - zoxide
 - fzf
 - tmux
 
-###shells:
+### shells:
 - fish
 - zsh
 
-###prompt themes:
+### prompt themes:
 - starship (fish)
 - powerlevel10k (zsh)
