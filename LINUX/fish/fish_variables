@@ -1,0 +1,39 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export EDITOR:nvim
+SETUVAR __fish_initialized:3400
+SETUVAR _fisher_jorgebucaran_2F_autopair_2E_fish_files:\x7e/\x2econfig/fish/functions/_autopair_backspace\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_left\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_right\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_same\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_tab\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/autopair\x2efish
+SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eveirt/web\x2dsearch\x2efish\x1ejorgebucaran/autopair\x2efish
+SETUVAR _fisher_upgraded_to_4_4:\x1d
+SETUVAR _fisher_veirt_2F_web_2D_search_2E_fish_files:\x7e/\x2econfig/fish/functions/web\x2dsearch\x2efish\x1e\x7e/\x2econfig/fish/completions/web\x2dsearch\x2efish
+SETUVAR fish_color_autosuggestion:555
+SETUVAR fish_color_cancel:normal
+SETUVAR fish_color_command:00ff5f
+SETUVAR fish_color_comment:800000
+SETUVAR fish_color_cwd:008000
+SETUVAR fish_color_cwd_root:800000
+SETUVAR fish_color_end:ff00ff
+SETUVAR fish_color_error:ff0000
+SETUVAR fish_color_escape:ffff00
+SETUVAR fish_color_history_current:normal
+SETUVAR fish_color_host:normal
+SETUVAR fish_color_host_remote:yellow
+SETUVAR fish_color_match:normal
+SETUVAR fish_color_normal:normal
+SETUVAR fish_color_operator:ffff00
+SETUVAR fish_color_param:008080
+SETUVAR fish_color_quote:808000
+SETUVAR fish_color_redirection:0000ff
+SETUVAR fish_color_search_match:ffff00
+SETUVAR fish_color_selection:c0c0c0
+SETUVAR fish_color_status:red
+SETUVAR fish_color_user:00ff00
+SETUVAR fish_color_valid_path:normal
+SETUVAR fish_greeting:Welcome\x20to\x20fish\x2c\x20the\x20friendly\x20interactive\x20shell\x0aType\x20\x60help\x60\x20for\x20instructions\x20on\x20how\x20to\x20use\x20fish
+SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_pager_color_completion:normal
+SETUVAR fish_pager_color_description:B3A06D\x1eyellow
+SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2dr
