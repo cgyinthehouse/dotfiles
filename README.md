@@ -14,4 +14,5 @@ my configs on parrotos
 
 ### prompt themes:
 - starship (fish)
+- tide (fish) (*fisher* requried)
 - powerlevel10k (zsh)
