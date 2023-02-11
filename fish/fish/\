@@ -58,8 +58,7 @@ alias longman='web-search longman'
 # aliases - others
 alias mdcs='open https://www.markdownguide.org/basic-syntax/'
 alias vimcs='open https://vim.rtorr.com/lang/zh_tw'
-alias colors='awk \'BEGIN{colors[1]=31; colors[2]=32; colors[3]=33; colors[4]=34; colors[5]=35; colors[6]=36; count=1} {printf "\033[1;%dm%s\033[0m\n", colors[count], $0; count+=1}\''
-alias song='playerctl metadata --format "STATUS: {{ emoji(status) }}-- {{ artist }}-- {{ album }}-- {{ title }}" | sed "s/\-\-/\n/g" | colors'
+alias song='playerctl metadata --format "STATUS: {{ emoji(status) }}\n {{ artist }}\n {{ album }}\n {{ title }}"'
 
 # fzf
 set -g FZF_DEFAULT_OPTS "--scroll-off 3 --bind change:top --height 50% --reverse --color=border:#6B6B6B,spinner:#98BC99,hl:#68ca7c,fg:#D9D9D9,header:#719872,info:#BDBB72,pointer:#E12672,marker:#E17899,fg+:#D9D9D9,prompt:#98BEDE,hl+:#7ae471,scrollbar:blue"

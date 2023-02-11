@@ -57,23 +57,25 @@ set-option -sa terminal-overrides ',alacritty:Tc'
 
 
 # default theme
-tmux_conf_theme_colour_1="#080808"    # dark gray
-tmux_conf_theme_colour_2="#303030"    # gray
-tmux_conf_theme_colour_3="#8a8a8a"    # light gray
-tmux_conf_theme_colour_4="#00afff"     # light blue
-tmux_conf_theme_colour_5="#ffff00"    # yellow
-tmux_conf_theme_colour_6="#080808"    # dark gray
-tmux_conf_theme_colour_7="#e4e4e4"    # white
-tmux_conf_theme_colour_8="#41a6b5"    # orange
-tmux_conf_theme_colour_9="#ffff00"    # yellow
-tmux_conf_theme_colour_10="#147b5f"   # pink
-tmux_conf_theme_colour_11="#5fff00"   # green
-tmux_conf_theme_colour_12="#8a8a8a"   # light gray
-tmux_conf_theme_colour_13="#4e5173"   # white  
-tmux_conf_theme_colour_14="#080808"   # dark gray
-tmux_conf_theme_colour_15="#1f2335"  # dark gray
-tmux_conf_theme_colour_16="#d70000"   # red
-tmux_conf_theme_colour_17="#e4e4e4"   # white
+tmux_conf_theme_colour_1="#080808" 
+tmux_conf_theme_colour_2="#303030" 
+tmux_conf_theme_colour_3="#8a8a8a" 
+tmux_conf_theme_colour_4="#00afff" 
+tmux_conf_theme_colour_5="#ffc36e" 
+tmux_conf_theme_colour_6="#080808" 
+tmux_conf_theme_colour_7="#e4e4e4" 
+tmux_conf_theme_colour_8="#41a6b5" 
+tmux_conf_theme_colour_9="#fcaf3e"
+tmux_conf_theme_colour_10="#147b5f"
+tmux_conf_theme_colour_11="#8EBD6B"
+tmux_conf_theme_colour_12="#949494"
+tmux_conf_theme_colour_13="#4e5173"  
+tmux_conf_theme_colour_14="#080808"  
+tmux_conf_theme_colour_15="#333749"  
+tmux_conf_theme_colour_16="#d70000"  
+tmux_conf_theme_colour_17="#e4e4e4"  
+tmux_conf_theme_colour_18="#73e6be"
+tmux_conf_theme_colour_19="#282828"
 
 # default theme (ansi)
 #tmux_conf_theme_colour_1="colour0"
@@ -121,7 +123,7 @@ tmux_conf_theme_pane_active_indicator="$tmux_conf_theme_colour_4"
 
 # status line style
 tmux_conf_theme_message_fg="$tmux_conf_theme_colour_1"
-tmux_conf_theme_message_bg="$tmux_conf_theme_colour_5"
+tmux_conf_theme_message_bg="$tmux_conf_theme_colour_9"
 tmux_conf_theme_message_attr="bold"
 
 # status line command style (<prefix> : Escape)
@@ -131,12 +133,12 @@ tmux_conf_theme_message_command_attr="bold"
 
 # window modes style
 tmux_conf_theme_mode_fg="$tmux_conf_theme_colour_1"
-tmux_conf_theme_mode_bg="$tmux_conf_theme_colour_5"
+tmux_conf_theme_mode_bg="$tmux_conf_theme_colour_9"
 tmux_conf_theme_mode_attr="bold"
 
 # status line style
-tmux_conf_theme_status_fg="$tmux_conf_theme_colour_3"
-tmux_conf_theme_status_bg="$tmux_conf_theme_colour_1"
+tmux_conf_theme_status_fg="$tmux_conf_theme_colour_12"
+tmux_conf_theme_status_bg="$tmux_conf_theme_colour_19"
 tmux_conf_theme_status_attr="none"
 
 # terminal title
@@ -161,8 +163,8 @@ tmux_conf_theme_terminal_title="#h ❐ #S ● #I #W"
 #     - #{hostname_full_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_window_status_fg="$tmux_conf_theme_colour_3"
-tmux_conf_theme_window_status_bg="$tmux_conf_theme_colour_1"
+tmux_conf_theme_window_status_fg="$tmux_conf_theme_colour_12"
+tmux_conf_theme_window_status_bg="$tmux_conf_theme_colour_15"
 tmux_conf_theme_window_status_attr="none"
 tmux_conf_theme_window_status_format="#I #W"
 #tmux_conf_theme_window_status_format="#{circled_window_index} #W"
@@ -178,8 +180,8 @@ tmux_conf_theme_window_status_format="#I #W"
 #     - #{hostname_full_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_window_status_current_fg="$tmux_conf_theme_colour_1"
-tmux_conf_theme_window_status_current_bg="$tmux_conf_theme_colour_4"
+tmux_conf_theme_window_status_current_fg="$tmux_conf_theme_colour_5"
+tmux_conf_theme_window_status_current_bg="$tmux_conf_theme_colour_15"
 tmux_conf_theme_window_status_current_attr="bold"
 tmux_conf_theme_window_status_current_format="#I #W"
 #tmux_conf_theme_window_status_current_format="#{circled_window_index} #W"
@@ -196,19 +198,19 @@ tmux_conf_theme_window_status_bell_bg="default"
 tmux_conf_theme_window_status_bell_attr="blink,bold"
 
 # window last status style
-tmux_conf_theme_window_status_last_fg="$tmux_conf_theme_colour_4"
-tmux_conf_theme_window_status_last_bg="$tmux_conf_theme_colour_2"
+tmux_conf_theme_window_status_last_fg="$tmux_conf_theme_colour_8"
+tmux_conf_theme_window_status_last_bg="$tmux_conf_theme_colour_15"
 tmux_conf_theme_window_status_last_attr="none"
 
 # status left/right sections separators
-tmux_conf_theme_left_separator_main=""
-tmux_conf_theme_left_separator_sub="|"
+# tmux_conf_theme_left_separator_main="|"
+tmux_conf_theme_left_separator_sub=""
 tmux_conf_theme_right_separator_main=""
-#tmux_conf_theme_right_separator_sub="|"
-# tmux_conf_theme_left_separator_main='\uE0B0'  # /!\ you don't need to install Powerline
+tmux_conf_theme_right_separator_sub=""
+tmux_conf_theme_left_separator_main='\uE0BC'  # /!\ you don't need to install Powerline
 # tmux_conf_theme_left_separator_sub='\uE0B1'   #   you only need fonts patched with
 # tmux_conf_theme_right_separator_main='\uE0B2' #   Powerline symbols or the standalone
-tmux_conf_theme_right_separator_sub='|'  #   PowerlineSymbols.otf font, see README.md
+# tmux_conf_theme_right_separator_sub='|'  #   PowerlineSymbols.otf font, see README.md
 
 # status left/right content:
 #   - separate main sections with "|"
@@ -237,17 +239,17 @@ tmux_conf_theme_right_separator_sub='|'  #   PowerlineSymbols.otf font, see READ
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left="  #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,} "
-tmux_conf_theme_status_right=" 懶#{playerctl_short} #{prefix_highlight}#{?mouse, #{mouse},}#{?pairing, #{pairing},}#{?synchronized,#{synchronized},}| #{weather} | %R  %m-%d%a"
+tmux_conf_theme_status_left="  #S | #{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}"
+tmux_conf_theme_status_right=" 懶#{playerctl_short} #{prefix_highlight}#{?mouse, #{mouse},}#{?pairing, #{pairing},}#{?synchronized,#{synchronized},}|#{weather} | %R  %m/%d %a"
  
 # status left style
-tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
-tmux_conf_theme_status_left_bg="$tmux_conf_theme_colour_8,$tmux_conf_theme_colour_13,$tmux_conf_theme_colour_11"
+tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_18,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
+tmux_conf_theme_status_left_bg="$tmux_conf_theme_colour_19,$tmux_conf_theme_colour_19,$tmux_conf_theme_colour_19"
 tmux_conf_theme_status_left_attr="bold,none,none"
 
 # status right style
-tmux_conf_theme_status_right_fg="$tmux_conf_theme_colour_8,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_1"
-tmux_conf_theme_status_right_bg="$tmux_conf_theme_colour_15,$tmux_conf_theme_colour_13,$tmux_conf_theme_colour_8"
+tmux_conf_theme_status_right_fg="$tmux_conf_theme_colour_8,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_18"
+tmux_conf_theme_status_right_bg="$tmux_conf_theme_colour_19,$tmux_conf_theme_colour_19,$tmux_conf_theme_colour_19"
 tmux_conf_theme_status_right_attr="bold,none,none"
 
 # pairing indicator
@@ -362,7 +364,6 @@ set -g mode-keys vi
 # move status line to top
 #set -g status-position top
 
-
 # -- tpm -----------------------------------------------------------------------
 
 # while I don't use tpm myself, many people requested official support so here
@@ -409,10 +410,10 @@ set -g @plugin 'richin13/tmux-plugin-playerctl'
 set -g @short_append_chars "..."
 set -g @short_length "40"
 
-set -g @prefix_highlight_fg "colour25"
-set -g @prefix_highlight_bg "colour48"
+set -g @prefix_highlight_fg "colour8"
+set -g @prefix_highlight_bg "$tmux_conf_theme_colour_11"
 set -g @prefix_highlight_show_copy_mode 'on'
-set -g @prefix_highlight_copy_mode_attr 'fg=black,bg=yellow,bold'
+set -g @prefix_highlight_copy_mode_attr "fg=black,bg="$tmux_conf_theme_colour_9",bold"
 set -g @prefix_highlight_show_sync_mode 'on'
 set -g @prefix_highlight_sync_mode_attr 'fg=black,bg=green'
 set -g @prefix_highlight_copy_prompt 'COPY'
