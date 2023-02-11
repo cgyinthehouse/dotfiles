@@ -58,7 +58,7 @@ alias longman='web-search longman'
 # aliases - others
 alias mdcs='open https://www.markdownguide.org/basic-syntax/'
 alias vimcs='open https://vim.rtorr.com/lang/zh_tw'
-alias colors='awk \'BEGIN{colors[1]=31; colors[2]=32; colors[3]=33; colors[4]=34; colors[5]=35; colors[6]=36; count=1} {printf "\033[1;%dm%s\033[0m\n", colors[count], $0; count+=1}\''
+alias colors='awk \'BEGIN{colors[0]=36; colors[1]=31; colors[2]=32; colors[3]=33; colors[4]=34; colors[5]=35;} {printf "\033[1;%dm%s\033[0m\n", colors[NR % 6], $0}\''
 alias song='playerctl metadata --format "STATUS: {{ emoji(status) }}-- {{ artist }}-- {{ album }}-- {{ title }}" | sed "s/\-\-/\n/g" | colors'
 
 # fzf
