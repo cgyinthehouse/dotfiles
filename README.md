@@ -12,6 +12,10 @@ my configs on parrotos
 - fish
 - zsh
 
+### terminals:
+- alacritty
+- wezterm
+
 ### prompt themes:
 - starship (fish)
 - tide (fish) (*fisher* requried)
