@@ -203,11 +203,11 @@ tmux_conf_theme_window_status_last_bg="$tmux_conf_theme_colour_15"
 tmux_conf_theme_window_status_last_attr="none"
 
 # status left/right sections separators
-# tmux_conf_theme_left_separator_main="|"
+tmux_conf_theme_left_separator_main=""
 tmux_conf_theme_left_separator_sub=""
 tmux_conf_theme_right_separator_main=""
 tmux_conf_theme_right_separator_sub=""
-tmux_conf_theme_left_separator_main='\uE0BC'  # /!\ you don't need to install Powerline
+# tmux_conf_theme_left_separator_main='\uE0BC'  # /!\ you don't need to install Powerline
 # tmux_conf_theme_left_separator_sub='\uE0B1'   #   you only need fonts patched with
 # tmux_conf_theme_right_separator_main='\uE0B2' #   Powerline symbols or the standalone
 # tmux_conf_theme_right_separator_sub='|'  #   PowerlineSymbols.otf font, see README.md
@@ -240,7 +240,7 @@ tmux_conf_theme_left_separator_main='\uE0BC'  # /!\ you don't need to install Po
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left="  #S | #{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}"
-tmux_conf_theme_status_right=" 懶#{playerctl_short} #{prefix_highlight}#{?mouse, #{mouse},}#{?pairing, #{pairing},}#{?synchronized,#{synchronized},}|#{weather} | %R  %m/%d %a"
+tmux_conf_theme_status_right=" 懶#{playerctl_short} #{prefix_highlight}#{?mouse, #{mouse},}#{?pairing, #{pairing},}#{?synchronized,#{synchronized},}|#{weather}| %R  %m/%d %a"
  
 # status left style
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_18,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
@@ -265,7 +265,7 @@ tmux_conf_theme_prefix_bg="none"
 tmux_conf_theme_prefix_attr="none"
 
 # mouse indicator
-tmux_conf_theme_mouse="  "                  # U+2197
+tmux_conf_theme_mouse=""                  # U+2197
 # tmux_conf_theme_mouse_fg="none"
 # tmux_conf_theme_mouse_bg="none"
 tmux_conf_theme_mouse_attr="none"
@@ -436,7 +436,7 @@ set -g @prefix_highlight_sync_prompt 'SYNC'
 # # /!\ do not "uncomment" the functions: the leading "# " characters are needed
 #
 # weather() {                                         # see https://github.com/chubin/wttr.in#one-line-output
-#   curl -f -s -m 8 'wttr.in/蘆洲區?format=%t+%c\n&lang=zh-tw' | sed 's/  //g' || printf '\n' # /!\ make sure curl is installed
+#   curl -f -s -m 8 'wttr.in/蘆洲區?format=%t+%c\n&lang=zh-tw' | sed 's/ {2,}//g' | printf '\n' # /!\ make sure curl is installed
 #   sleep 900                                         # sleep for 15 minutes, throttle network requests whatever the value of status-interval
 # }
 #

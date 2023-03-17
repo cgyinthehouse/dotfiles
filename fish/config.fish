@@ -1,6 +1,7 @@
 set -g fish_greeting
 set -Ux EDITOR nvim
 set -gx RUNEWIDTH_EASTASIAN 0
+set --universal nvm_default_version v18.15.0
 
 set PATH ~/.local/bin /snap/bin /usr/sandbox/ /usr/local/bin /usr/bin /bin /usr/local/games /usr/games /usr/share/games /usr/local/sbin /usr/sbin /sbin ~/.cargo/bin $PATH
 
@@ -36,10 +37,13 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias bat='batcat'
+alias wezterm='flatpak run org.wezfurlong.wezterm'
+alias librewolf='flatpak run io.gitlab.librewolf-community'
 
-# aliases -- tmux (syntax: alias [,command)
+# aliases -- tmux (syntax: alias [,command])
 alias tp='tmux popup -E -E -w 80% -h 80% -b rounded -S \'fg=yellow\''
 alias tn='tmux neww -a' # create a new temporary window
+alias tsp='tmux splitw'
 
 # aliases -- web-search
 alias google='web-search google'
