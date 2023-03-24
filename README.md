@@ -2,19 +2,24 @@
 my configs on parrotos
 
 ### related apps:
-- bat
+- bashtop
 - exa
 - zoxide
 - fzf
 - tmux
 
 ### shells:
-- fish
-- zsh
+- fish with fisher
+- zsh with ohmyzsh
 
 ### terminals:
 - alacritty
 - wezterm
+
+### window manager & relatives:
+- awesomewm (from [the-dot-glorious-dotfiles](https://github.com/manilarome/the-glorious-dotfiles))
+- picom
+- rofi
 
 ### prompt themes:
 - starship (fish)
