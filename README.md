@@ -25,3 +25,6 @@ my configs on parrotos
 - starship (fish)
 - tide (fish) (*fisher* requried)
 - powerlevel10k (zsh)
+
+### editor:
+- neovim ([my neovim config](https://github.com/cgyinthehouse/nvim))
