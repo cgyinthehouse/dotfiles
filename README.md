@@ -1,20 +1,27 @@
 # config
-my configs on parrotos
+here are some of my configs on parrotos and macos
 
 ### related apps:
-- bashtop
-- exa
-- zoxide
-- fzf
-- tmux
+- btop(system monitor)
+- bottom(system monitor)
+- lf (file manager)
+- exa(colorful ls)
+- bat(cat with syntax highlighting)
+- zoxide(better cd)
+- fzf(powerful fuzzy finder in many cases)
+- tmux(multiplexer)
+- lazygit
+- tldr(consice manual)
+- ripgrep (a faster 'find')
 
 ### shells:
-- fish with fisher
+- fish with fisher ✔︎
 - zsh with ohmyzsh
 
 ### terminals:
 - alacritty
 - wezterm
+- iterm2
 
 ### window manager & relatives:
 - awesomewm (from [the-dot-glorious-dotfiles](https://github.com/manilarome/the-glorious-dotfiles))
@@ -23,8 +30,11 @@ my configs on parrotos
 
 ### prompt themes:
 - starship (fish)
-- tide (fish) (*fisher* requried)
+- tide (fish) ✔︎
 - powerlevel10k (zsh)
 
 ### editor:
-- neovim ([my neovim config](https://github.com/cgyinthehouse/nvim))
+- Astronvim ([my config](https://github.com/cgyinthehouse/astronvim))
+
+### typing practice:
+- termtyper
