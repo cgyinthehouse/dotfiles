@@ -44,8 +44,6 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias lg='lazygit'
-alias pip-search='python3 -m pip_search'
-alias tt='/opt/homebrew/bin/termtyper'
 alias weather='curl v2.wttr.in/Neihu'
 alias hn="hackernews_tui"
 
@@ -79,13 +77,55 @@ function bangs -d 'duckduckgo bangs'
   end
 end
 
+# Add vocabulary to my vocabulary.md
+function voca -d "Manage your vocabulary box"
+  argparse --stop-nonopt l/list h/help -- $argv
+  or return
+  
+  if set -ql _flag_help
+    printf %s\n \
+    'voca - manage your vocabulary box' \
+    'Usage: voca [WORD ...]' \
+    'Options:' \
+    '  -h or --help: print this help message' \
+    '  -l or --list: list all words in the box'
+    return 0
+  end
+  
+  if set -ql _flag_list
+    if not test -f ~/.vocabularybox; or test -z (cat ~/.vocabularybox)
+      echo 'vocabulary box does not exist or empty. Use "voca [WORD ...]" to add words.'
+      return 0
+    end
+    less -N ~/.vocabularybox
+    return 0
+  end
+
+  _voca_add_words $argv
+end
+
+function _voca_add_words -d 'Add words to vocabulary box'
+  if test (count $argv) -eq 0
+    echo "No word was passed. See \"voca -h\"."
+    return
+  end
+  
+  if test (count $argv) -eq 1
+    echo $argv >> ~/.vocabularybox
+  else
+    for i in $argv
+      echo $i >> ~/.vocabularybox
+    end
+  end
+end
+
 # aliases - cheat sheet
 alias mdcs='open https://www.markdownguide.org/basic-syntax/'
 alias vimcs='open https://vim.rtorr.com/lang/zh_tw'
 
 # mdbooks
 alias book-go="open ~/Desktop/mdbook/build-web-application-with-golang-zh_tw/book/index.html"
-alias book-rust='open ~/Desktop/mdbook/rust_book_tw/book/index.html'
+alias book-rust='open ~/Desktop/mdbook/rust-course/book/index.html'
 
 # fzf
 set -g FZF_DEFAULT_OPTS "--scroll-off 3 --bind change:top --height 40% --reverse --color=border:#6ee7b7,spinner:#73d0ff,hl:#e1a676,fg:#cbccc6,header:#d4bfff,info:#73d0ff,pointer:#7dd3fc,marker:#E17899,fg+:#D9D9D9,prompt:#707a8c,hl+:#ffcc66,scrollbar:blue"
