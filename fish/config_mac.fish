@@ -79,25 +79,42 @@ end
 
 # Add vocabulary to my vocabulary.md
 function voca -d "Manage your vocabulary box"
-  argparse --stop-nonopt l/list h/help -- $argv
+  argparse --stop-nonopt l/list h/help d/dict 't/tail=?!_validate_int' -- $argv
   or return
+  
   
   if set -ql _flag_help
     printf %s\n \
     'voca - manage your vocabulary box' \
     'Usage: voca [WORD ...]' \
     'Options:' \
-    '  -h or --help: print this help message' \
-    '  -l or --list: list all words in the box'
+    '  -d or --dict: select a word and look it up in the cambridge dictionary' \
+    '  -l or --list: list all words in the box' \
+    '  -t[NUM] or --tail[=NUM]: list the last N numbers of words in the box (default is 10)' \
+    '  -h or --help: print this help message'
     return 0
   end
   
   if set -ql _flag_list
-    if not test -f ~/.vocabularybox; or test -z (cat ~/.vocabularybox)
+    if not test -f ~/.vocabularybox; or not test -s ~/.vocabularybox
       echo 'vocabulary box does not exist or empty. Use "voca [WORD ...]" to add words.'
       return 0
     end
     less -N ~/.vocabularybox
+    return 0
+  end
+
+  if set -ql _flag_dict
+    dict (cat ~/.vocabularybox | fzf)
+    return 0
+  end
+
+  if set -ql _flag_tail
+    if test -z $_flag_tail
+      tail ~/.vocabularybox
+    else
+      tail -n $_flag_tail ~/.vocabularybox
+    end
     return 0
   end
 
