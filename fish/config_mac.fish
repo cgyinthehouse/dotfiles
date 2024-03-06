@@ -78,6 +78,11 @@ function bangs -d 'duckduckgo bangs'
 end
 
 # Add vocabulary to my vocabulary.md
+# TODO:
+# add validation which checks whether the word is already exist
+# add gist sync
+# goruping by first letter
+
 function voca -d "Manage your vocabulary box"
   argparse --stop-nonopt l/list h/help d/dict 't/tail=?!_validate_int' -- $argv
   or return
@@ -88,7 +93,7 @@ function voca -d "Manage your vocabulary box"
     'voca - manage your vocabulary box' \
     'Usage: voca [WORD ...]' \
     'Options:' \
-    '  -d or --dict: select a word and look it up in the cambridge dictionary' \
+    '  -d or --dict: select a word and look it up in a dictionary' \
     '  -l or --list: list all words in the box' \
     '  -t[NUM] or --tail[=NUM]: list the last N numbers of words in the box (default is 10)' \
     '  -h or --help: print this help message'
@@ -100,12 +105,37 @@ function voca -d "Manage your vocabulary box"
       echo 'vocabulary box does not exist or empty. Use "voca [WORD ...]" to add words.'
       return 0
     end
-    less -N ~/.vocabularybox
+    cat ~/.vocabularybox | fzf --reverse
     return 0
   end
 
   if set -ql _flag_dict
-    dict (cat ~/.vocabularybox | fzf)
+    printf %s\n \
+    'select dictionary by number:' \
+    '1) cambridge' \
+    '2) longman' \
+    '3) urbandictionary'
+    set -l cmd dict 
+    while read -l dictionary -P "> "
+      switch $dictionary
+        case 1
+        case 2
+          set cmd longman
+        case 3
+          set cmd web-search urbandict
+        case '*'
+          echo 'using default cambridge dictionary...'
+          sleep 0.5
+      end
+      break
+    end
+    
+    set -l word (cat ~/.vocabularybox | fzf)
+    if test -z $word
+      return 1
+    end
+    
+    $cmd $word
     return 0
   end
 
@@ -123,7 +153,7 @@ end
 
 function _voca_add_words -d 'Add words to vocabulary box'
   if test (count $argv) -eq 0
-    echo "No word was passed. See \"voca -h\"."
+    echo "No argument was passed. See \"voca -h\"."
     return
   end
   
