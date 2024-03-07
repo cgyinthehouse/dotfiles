@@ -79,9 +79,8 @@ end
 
 # Add vocabulary to my vocabulary.md
 # TODO:
-# add validation which checks whether the word is already exist
 # add gist sync
-# goruping by first letter
+# goruping by first letter for future development
 
 function voca -d "Manage your vocabulary box"
   argparse --stop-nonopt l/list h/help d/dict 't/tail=?!_validate_int' -- $argv
@@ -112,10 +111,11 @@ function voca -d "Manage your vocabulary box"
   if set -ql _flag_dict
     printf %s\n \
     'select dictionary by number:' \
-    '1) cambridge' \
+    '1) vocabulary.com' \
     '2) longman' \
-    '3) urbandictionary'
-    set -l cmd dict 
+    '3) urban dictionary' \
+    '4) cambridge dictionary'
+    set -l cmd bangs vocabulary 
     while read -l dictionary -P "> "
       switch $dictionary
         case 1
@@ -123,8 +123,10 @@ function voca -d "Manage your vocabulary box"
           set cmd longman
         case 3
           set cmd web-search urbandict
+        case 4
+          set cmd dict
         case '*'
-          echo 'using default cambridge dictionary...'
+          echo 'using vocabulary.com (default)...'
           sleep 0.5
       end
       break
@@ -156,6 +158,8 @@ function _voca_add_words -d 'Add words to vocabulary box'
     echo "No argument was passed. See \"voca -h\"."
     return
   end
+
+  # TODO: add repeated word validation
   
   if test (count $argv) -eq 1
     echo $argv >> ~/.vocabularybox
