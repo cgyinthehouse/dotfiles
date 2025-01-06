@@ -1,40 +1,49 @@
-# config
-here are some of my configs on parrotos and macos
+# Configrations
 
-### related apps:
-- btop(system monitor)
-- bottom(system monitor)
-- lf (file manager)
-- exa(colorful ls)
-- bat(cat with syntax highlighting)
-- zoxide(better cd)
-- fzf(powerful fuzzy finder in many cases)
-- tmux(multiplexer)
+Here are some of my configs on ParrotOS and MacOS.
+
+### Command line tools:
+
+- btop (System monitor)
+- bottom (System monitor)
+- lf (File manager)
+- exa (Colorful ls)
+- bat (Cat with syntax highlighting)
+- zoxide (Better cd)
+- fzf (Powerful fuzzy finder in many cases)
+- tmux (Multiplexer) with ([oh my tmux](https://github.com/gpakosz/.tmux))
 - lazygit
-- tldr(consice manual)
-- ripgrep (a faster 'find')
+- tldr (Consice manual)
+- ripgrep (A faster 'find')
 
-### shells:
-- fish with fisher ✔︎
-- zsh with ohmyzsh
+### Shells and its plugin manager:
 
-### terminals:
-- alacritty
+- fish / fisher (using)
+- zsh / ohmyzsh (haven't touch for a long time)
+
+### Terminals:
+
+- iterm2 (using)
 - wezterm
-- iterm2
+- alacritty
 
-### window manager & relatives:
+### Window manager & relatives:
+
+- amethyst
 - awesomewm (from [the-dot-glorious-dotfiles](https://github.com/manilarome/the-glorious-dotfiles))
 - picom
 - rofi
 
-### prompt themes:
+### Prompt themes:
+
+- tide (fish) (using)
 - starship (fish)
-- tide (fish) ✔︎
 - powerlevel10k (zsh)
 
 ### editor:
+
 - Astronvim ([my config](https://github.com/cgyinthehouse/astronvim))
 
-### typing practice:
+### Typing practice cli:
+
 - termtyper
