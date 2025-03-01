@@ -1,0 +1,103 @@
+set icons
+set promptfmt "\033[32;1mkent@%h\033[35;1m%d\033[0m\033[1m%f\033[0m"
+set previewer ~/.config/lf/previewer
+
+###### Custom Functions #####
+
+cmd delete %{{
+    set -f
+    file="$(basename $fx)"
+    printf "\033[31;1mDelete $file? [y/n]"
+    read ans
+    [ "$ans" = "y" ] && rm -rf $fx && printf "$file deleted."
+}}
+
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+
+cmd mkdir %{{
+    IFS=" "
+    mkdir -p -- "$*"
+    lf -remote "send $id select \"$*\""
+}}
+
+# new folder with selected items
+cmd newfold ${{
+    set -f
+    printf "\033[1mDirectory name: "
+    read newd
+    mkdir -- "$newd"
+    mv -- $fx "$newd"
+}}
+
+# Zoxide
+cmd z %{{
+	result="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
+	lf -remote "send $id cd \"$result\""
+}}
+
+cmd zi ${{
+	result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+	lf -remote "send $id cd \"$result\""
+}}
+
+# fzf_ripgrep
+cmd fzf_search ${{
+    RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+    res="$(
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
+            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+            --ansi --layout=reverse --header 'Search in files' \
+            | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
+    )"
+    [ -n "$res" ] && lf -remote "send $id select \"$res\""
+}}
+
+# show git info
+cmd on-cd &{{
+	# display repository status in your prompt
+	if [ -d .git ] || [ -f .git ]; then
+		branch=$(git branch --show-current 2>/dev/null) || true
+		remote=$(git config --get branch.$branch.remote 2>/dev/null) || true
+		url=$(git remote get-url $remote 2>/dev/null) || true
+		fmt="\033[32;1m%u@%h\033[0m:\033[34;1m%w\033[0m\033[33;1m [GIT BRANCH:> $branch >> $url]\033[0m"
+	elif [ -d .hg ]; then
+		hg=$(hg branch 2>/dev/null) || true
+		fmt="\033[32;1m%u@%h\033[0m:\033[34;1m%w\033[0m\033[33;1m [HG BRANCH:> $hg]\033[0m"
+	elif [ -d .svn ]; then
+		svn=$(svn info 2>/dev/null | awk '/^URL: /{print $2}') || true
+		fmt="\033[32;1m%u@%h\033[0m:\033[34;1m%w\033[0m\033[33;1m [SVN URL:> $svn]\033[0m"
+	else
+		fmt="\033[32;1m%u@%h\033[0m:\033[34;1m%d\033[0m\033[1m%f\033[0m"
+	fi
+	lf -remote "send $id set promptfmt \"$fmt\""
+}}
+
+###### Keymaps ######
+
+map zz push :z<space>
+map zi zi
+map D :delete
+map gs :fzf_search
+map <a-n> newfold
+map gv &qlmanage -p "$f"
+map i $LESSOPEN='| ~/.config/lf/previewer %s' less -R $f
+
+# Create directories/files
+map af push :%touch<space>
+map ad push :mkdir<space>
+
+# edit lf config
+map C edit-config
+
+# Move to next/previous sibling directory
+map J :updir; set dironly true; down; set dironly false; open
+map K :updir; set dironly true; up; set dironly false; open
+
+# Movement
+map gd cd ~/Downloads
+map gD cd ~/Desktop
+map gc cd ~/.config
+

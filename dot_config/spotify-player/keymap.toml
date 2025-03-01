@@ -1,0 +1,8 @@
+[[actions]]
+action="ToggleLiked"
+key_sequence="C-l"
+target="SelectedItem"
+
+[[keymaps]]
+command = { VolumeChange = { offset = 5 } }
+key_sequence = "="

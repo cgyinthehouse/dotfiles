@@ -1,6 +1,0 @@
-!ddg youtube
-youtube
-	!how to install archlinux
-`man xdg-user-dir`
-A Rofi with file and web searching functionality
-:help to print this help message
