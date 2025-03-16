@@ -1,0 +1,136 @@
+{
+  "title": "Change caps_lock, spacebar, right_command",
+  "rules": [
+    {
+      "description": "Remap spacebar to left_shift",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar"
+          },
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 100,
+            "basic.to_if_held_down_timeout_milliseconds": 100
+          },
+          "to_if_held_down": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "spacebar"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Remap caps_lock to right_control (post caps_lock if presesd alone)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_control",
+              "lazy": true
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 100,
+            "basic.to_if_held_down_timeout_milliseconds": 100
+          },
+          "to_if_held_down": [
+            {
+              "key_code": "right_control"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "caps_lock"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Remap right_cmd to escape",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Remap caps_lock to right_control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_control"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Remap caps_lock to right_control (post escape if presesd alone)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_control",
+              "lazy": true
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 100,
+            "basic.to_if_held_down_timeout_milliseconds": 100
+          },
+          "to_if_held_down": [
+            {
+              "key_code": "right_control"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

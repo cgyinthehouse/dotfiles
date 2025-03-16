@@ -1,0 +1,376 @@
+{
+    "profiles": [
+        {
+            "name": "Default profile",
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        },
+        {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "t:iTerm2, v:VSCode, l:Librewolf, b:Brave, f:Finder, n:NetNewsWire",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "spacebar" },
+                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 150 },
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "spacebar pressed",
+                                            "value": false
+                                        }
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "spacebar" }],
+                                "to_if_held_down": [
+                                    {
+                                        "set_variable": {
+                                            "name": "spacebar pressed",
+                                            "value": true
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "spacebar pressed",
+                                        "type": "variable_if",
+                                        "value": true
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "software_function": { "open_application": { "bundle_identifier": "com.microsoft.VSCode" } } }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "spacebar pressed",
+                                        "type": "variable_if",
+                                        "value": true
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "software_function": { "open_application": { "bundle_identifier": "com.ranchero.NetNewsWire-Evergreen" } } }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "spacebar pressed",
+                                        "type": "variable_if",
+                                        "value": true
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "open ~/Desktop" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "spacebar pressed",
+                                        "type": "variable_if",
+                                        "value": true
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "software_function": { "open_application": { "bundle_identifier": "com.brave.Browser" } } }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "spacebar pressed",
+                                        "type": "variable_if",
+                                        "value": true
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "software_function": { "open_application": { "bundle_identifier": "org.mozilla.librewolf" } } }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "spacebar pressed",
+                                        "type": "variable_if",
+                                        "value": true
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "software_function": { "open_application": { "bundle_identifier": "com.googlecode.iterm2" } } }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Remap caps_lock to right_control (post escape if presesd alone)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 100,
+                                    "basic.to_if_held_down_threshold_milliseconds": 100
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_control",
+                                        "lazy": true
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "escape" }],
+                                "to_if_held_down": [{ "key_code": "right_control" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change Option + h/j/k/l to Arrows",
+                        "enabled": false,
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": ["option"],
+                                        "optional": ["caps_lock"]
+                                    }
+                                },
+                                "to": [{ "key_code": "left_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "mandatory": ["option"],
+                                        "optional": ["caps_lock"]
+                                    }
+                                },
+                                "to": [{ "key_code": "down_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": ["option"],
+                                        "optional": ["caps_lock"]
+                                    }
+                                },
+                                "to": [{ "key_code": "up_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": ["option"],
+                                        "optional": ["caps_lock"]
+                                    }
+                                },
+                                "to": [{ "key_code": "right_arrow" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Remap caps_lock to right_control",
+                        "enabled": false,
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "right_control" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Remap right_cmd to escape",
+                        "enabled": false,
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "right_command",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "escape" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Remap caps_lock to right_control (post caps_lock if presesd alone)",
+                        "enabled": false,
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "right_control" }],
+                                "to_if_alone": [{ "key_code": "caps_lock" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Remap spacebar to left_shift",
+                        "enabled": false,
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "spacebar" },
+                                "to": [{ "key_code": "left_shift" }],
+                                "to_if_alone": [{ "key_code": "spacebar" }],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 62728,
+                        "vendor_id": 13652
+                    },
+                    "ignore": true
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 33398,
+                        "vendor_id": 9306
+                    },
+                    "ignore": false,
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "escape" },
+                            "to": [{ "key_code": "grave_accent_and_tilde" }]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 20565,
+                        "vendor_id": 12815
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "escape" },
+                            "to": [{ "key_code": "grave_accent_and_tilde" }]
+                        }
+                    ]
+                },
+                {
+                    "fn_function_keys": [
+                        {
+                            "from": { "key_code": "f1" },
+                            "to": [{ "consumer_key_code": "display_brightness_decrement" }]
+                        },
+                        {
+                            "from": { "key_code": "f2" },
+                            "to": [{ "consumer_key_code": "display_brightness_increment" }]
+                        },
+                        {
+                            "from": { "key_code": "f3" },
+                            "to": [{ "apple_vendor_keyboard_key_code": "mission_control" }]
+                        },
+                        {
+                            "from": { "key_code": "f4" },
+                            "to": [{ "apple_vendor_keyboard_key_code": "launchpad" }]
+                        },
+                        {
+                            "from": { "key_code": "f7" },
+                            "to": [{ "consumer_key_code": "rewind" }]
+                        },
+                        {
+                            "from": { "key_code": "f8" },
+                            "to": [{ "consumer_key_code": "play_or_pause" }]
+                        },
+                        {
+                            "from": { "key_code": "f9" },
+                            "to": [{ "consumer_key_code": "fast_forward" }]
+                        },
+                        {
+                            "from": { "key_code": "f10" },
+                            "to": [{ "consumer_key_code": "mute" }]
+                        },
+                        {
+                            "from": { "key_code": "f11" },
+                            "to": [{ "consumer_key_code": "volume_decrement" }]
+                        },
+                        {
+                            "from": { "key_code": "f12" },
+                            "to": [{ "consumer_key_code": "volume_increment" }]
+                        }
+                    ],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 32776,
+                        "vendor_id": 1241
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "escape" },
+                            "to": [{ "key_code": "grave_accent_and_tilde" }]
+                        },
+                        {
+                            "from": { "key_code": "insert" },
+                            "to": [{ "consumer_key_code": "play_or_pause" }]
+                        },
+                        {
+                            "from": { "key_code": "left_command" },
+                            "to": [{ "key_code": "left_option" }]
+                        },
+                        {
+                            "from": { "key_code": "left_control" },
+                            "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }]
+                        },
+                        {
+                            "from": { "key_code": "left_option" },
+                            "to": [{ "key_code": "left_command" }]
+                        },
+                        {
+                            "from": { "key_code": "right_option" },
+                            "to": [{ "key_code": "right_command" }]
+                        }
+                    ]
+                }
+            ],
+            "name": "Vim profile",
+            "selected": true,
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        }
+    ]
+}

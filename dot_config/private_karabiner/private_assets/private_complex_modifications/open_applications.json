@@ -1,0 +1,186 @@
+{
+	"title": "open applications with spacebar",
+	"rules": [
+		{
+			"description": "t:iTerm2, v:VSCode, l:Librewolf, b:Brave, f:Finder, n:NetNewsWire",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "spacebar"
+					},
+					"to_if_held_down": [
+						{
+							"set_variable": {
+								"name": "spacebar pressed",
+								"value": true
+							}
+						}
+					],
+					"to_after_key_up": [
+						{
+							"set_variable": {
+								"name": "spacebar pressed",
+								"value": false
+							}
+						}
+					],
+					"to_if_alone": [
+						{
+							"key_code": "spacebar"
+						}
+					],
+					"parameters": {
+						"basic.to_if_held_down_threshold_milliseconds": 150
+					}
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "v",
+						"modifiers": {
+							"optional": ["any"]
+						}
+					},
+					"to": [
+						{
+							"software_function": {
+								"open_application": {
+									"bundle_identifier": "com.microsoft.VSCode"
+								}
+							}
+						}
+					],
+					"conditions": [
+						{
+							"type": "variable_if",
+							"name": "spacebar pressed",
+							"value": true
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "n",
+						"modifiers": {
+							"optional": ["any"]
+						}
+					},
+					"to": [
+						{
+							"software_function": {
+								"open_application": {
+									"bundle_identifier": "com.ranchero.NetNewsWire-Evergreen"
+								}
+							}
+						}
+					],
+					"conditions": [
+						{
+							"type": "variable_if",
+							"name": "spacebar pressed",
+							"value": true
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "f",
+						"modifiers": {
+							"optional": ["any"]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "open ~/Desktop"
+						}
+					],
+					"conditions": [
+						{
+							"type": "variable_if",
+							"name": "spacebar pressed",
+							"value": true
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "b",
+						"modifiers": {
+							"optional": ["any"]
+						}
+					},
+					"to": [
+						{
+							"software_function": {
+								"open_application": {
+									"bundle_identifier": "com.brave.Browser"
+								}
+							}
+						}
+					],
+					"conditions": [
+						{
+							"type": "variable_if",
+							"name": "spacebar pressed",
+							"value": true
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "l",
+						"modifiers": {
+							"optional": ["any"]
+						}
+					},
+					"to": [
+						{
+							"software_function": {
+								"open_application": {
+									"bundle_identifier": "org.mozilla.librewolf"
+								}
+							}
+						}
+					],
+					"conditions": [
+						{
+							"type": "variable_if",
+							"name": "spacebar pressed",
+							"value": true
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "t",
+						"modifiers": {
+							"optional": ["any"]
+						}
+					},
+					"to": [
+						{
+							"software_function": {
+								"open_application": {
+									"bundle_identifier": "com.googlecode.iterm2"
+								}
+							}
+						}
+					],
+					"conditions": [
+						{
+							"type": "variable_if",
+							"name": "spacebar pressed",
+							"value": true
+						}
+					]
+				}
+			]
+		}
+	]
+}
